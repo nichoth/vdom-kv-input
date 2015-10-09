@@ -1,7 +1,7 @@
 {
   "name": "vdom-kv-input",
   "description": "virtual-dom inputs for key value pairs",
-  "main": "index.js",
+  "main": "KVInput.js",
   "version": "0.0.1",
   "browserify": {
     "transform": []
