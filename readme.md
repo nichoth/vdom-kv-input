@@ -2,6 +2,10 @@
 
 virtual-dom inputs for key value pairs
 
+## demo
+
+https://1a6699a10cff16f74b49751bc6299bcd76e314c6.htmlb.in
+
 
 ## install
 
