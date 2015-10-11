@@ -15,7 +15,8 @@ function KVInput(opts) {
       value: opts.field || '',
       attrs: {
         placeholder: 'field'
-      }
+      },
+      onDelete: onDelete()
     }),
     value: Input({
       value: opts.value || '',
@@ -30,6 +31,14 @@ function KVInput(opts) {
     return function() {
       if ( Input.hasValue(s.field) && Input.hasValue(s.value) ) {
         opts.onComplete();
+      }
+    };
+  }
+
+  function onDelete() {
+    return function() {
+      if ( !(Input.hasValue(s.field)) && !(Input.hasValue(s.value)) ) {
+        opts.onDelete();
       }
     };
   }
