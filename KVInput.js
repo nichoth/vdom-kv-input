@@ -1,6 +1,7 @@
 var h = require('virtual-dom/h');
 var state = require('@nichoth/state');
 var Input = require('vdom-input');
+var FocusHook = require('virtual-dom/virtual-hyperscript/hooks/focus-hook.js');
 var noop = function(){};
 
 module.exports = KVInput;
@@ -9,11 +10,19 @@ function KVInput(opts) {
 
   opts = opts || {};
   opts.onComplete = opts.onComplete || noop;
+  opts.onDelete = opts.onDelete || noop;
+
+  var focusField = opts.focus === 'field' ? new FocusHook() : false;
+  var focusValue = opts.focus === 'value' ? new FocusHook() : false;
 
   var s = state({
     field: Input({
       value: opts.field || '',
       attrs: {
+        focus: focusField,
+        onfocus: function(ev) {
+          this.select();
+        },
         placeholder: 'field'
       },
       onDelete: onDelete()
@@ -21,6 +30,10 @@ function KVInput(opts) {
     value: Input({
       value: opts.value || '',
       attrs: {
+        focus: focusValue,
+        onfocus: function(ev) {
+          this.select();
+        },
         placeholder: 'value'
       },
       onComplete: onComplete()

@@ -4,7 +4,8 @@ var KVInput = require('../KVInput.js');
 
 var state = KVInput({
   field: 'ham',
-  value: 'party'
+  value: 'party',
+  focus: 'value'
 });
 
 var virtualEl = KVInput.render( state() );
