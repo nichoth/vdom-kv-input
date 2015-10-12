@@ -29,7 +29,7 @@
     "@nichoth/keycodes": "0.0.3",
     "@nichoth/state": "0.0.0",
     "observ": "^0.2.0",
-    "vdom-input": "0.0.6",
+    "vdom-input": "0.0.7",
     "virtual-dom": "^2.1.1"
   }
 }
