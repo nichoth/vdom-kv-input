@@ -19,7 +19,7 @@ function KVInput(opts) {
     field: Input({
       value: opts.field || '',
       attrs: {
-        focus: focusField,
+        focusThis: focusField,
         onfocus: function(ev) {
           this.select();
         },
@@ -30,7 +30,7 @@ function KVInput(opts) {
     value: Input({
       value: opts.value || '',
       attrs: {
-        focus: focusValue,
+        focusThis: focusValue,
         onfocus: function(ev) {
           this.select();
         },
@@ -58,6 +58,11 @@ function KVInput(opts) {
 
   return s;
 }
+
+
+KVInput.isComplete = function(state) {
+  return Input.hasValue(state.field) && Input.hasValue(state.value);
+};
 
 
 KVInput.render = function(state) {
